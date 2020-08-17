@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Conference</string>
+    <string name="welcome_to">Ласкаво просимо</string>
+    <string name="video_meeting_conference_app">Відео дзвінки | Конференції</string>
+    <string name="sign_in_to_your_account">Увійдіть у Ваш акаунт</string>
+    <string name="email">Email</string>
+    <string name="dont_have_an_account">У Вас немає акаунта?</string>
+    <string name="sign_up">Зареєструватися</string>
+    <string name="sign_up_header">Реєстрація</string>
+    <string name="first_name">Ім\'я</string>
+    <string name="pasha">Паша</string>
+    <string name="last_name">Прізвище</string>
+    <string name="perets">Перець</string>
+    <string name="confirm_password">Підтвердіть пароль</string>
+    <string name="already_have_an_account">У Вас вже є акаунт?</string>
+    <string name="sign_in">Увійти</string>
+    <string name="register_your_account_here">Зареєструйтесь тут</string>
+    <string name="registration">Реєстрація</string>
+    <string name="enter">Вхід</string>
+    <string name="sign_out">Вихід</string>
+    <string name="incoming_meeting_ivitation">Вхідний відеовиклик</string>
+    <string name="sending_meeting_invitation">Вихідний відеовиклик</string>
+</resources>
