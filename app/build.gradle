@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.conference"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -55,5 +55,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.8.2') { transitive = true }
 
 }

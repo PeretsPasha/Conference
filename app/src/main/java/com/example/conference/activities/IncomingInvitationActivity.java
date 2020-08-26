@@ -19,8 +19,12 @@ import com.example.conference.network.ApiClient;
 import com.example.conference.network.ApiService;
 import com.example.conference.utilities.Constants;
 
+import org.jitsi.meet.sdk.JitsiMeetActivity;
+import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.net.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -95,14 +99,32 @@ public class IncomingInvitationActivity extends AppCompatActivity {
                     public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                         if (response.isSuccessful()) {
                             if (type.equals(Constants.REMOTE_MSG_INVITATION_ACCEPTED)) {
-                                Toast.makeText(IncomingInvitationActivity.this, "Виклик прийнято", Toast.LENGTH_LONG).show();
+
+                                try {
+
+                                    URL serverURL = new URL("https://meet.jit.si");
+                                    JitsiMeetConferenceOptions conferenceOptions =
+                                            new JitsiMeetConferenceOptions.Builder()
+                                            .setServerURL(serverURL)
+                                            .setWelcomePageEnabled(false)
+                                            .setRoom(getIntent().getStringExtra(Constants.REMOTE_MSG_MEETING_ROOM))
+                                            .build();
+                                    JitsiMeetActivity.launch(IncomingInvitationActivity.this, conferenceOptions);
+                                    finish();
+
+                                } catch (Exception e){
+                                    Toast.makeText(IncomingInvitationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+
                             } else {
                                 Toast.makeText(IncomingInvitationActivity.this, "Виклик відхилено", Toast.LENGTH_LONG).show();
+                                finish();
                             }
                         } else {
                             Toast.makeText(IncomingInvitationActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                            finish();
                         }
-                        finish();
                     }
 
                     @Override
